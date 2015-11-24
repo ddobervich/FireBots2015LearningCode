@@ -24,8 +24,6 @@ public class DriveDistance extends Command {
 
     // ensure distance is positive
     this.distance = Math.max(distance, -distance);
-
-    this.setTimeout(2.5);
   }
 
   @Override
@@ -37,13 +35,13 @@ public class DriveDistance extends Command {
   @Override
   protected void execute() {
     // nothing to do since motor speeds already set
+    System.out.println(Robot.driveTrain.getLeftDistance());
   }
 
   @Override
   protected boolean isFinished() {
     return (Math.abs(Robot.driveTrain.getLeftDistance()) >= distance && Math
-        .abs(Robot.driveTrain.getRightDistance()) >= distance)
-        || this.isTimedOut();
+        .abs(Robot.driveTrain.getRightDistance()) >= distance);
   }
 
   @Override

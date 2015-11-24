@@ -13,9 +13,9 @@ public class Constants {
   public static class OI {
     public final static int LEFT_STICK_PORT = 0;
     public final static int RIGHT_STICK_PORT = 1;
-    public final static int TRIGGER_PORT = 1;
-    public final static int TOGGLE_PORT = 2;
-    public final static int TOGGLE_COMPRESSOR_PORT = 11;
+    public final static int TRIGGER_BUTTON = 1;
+    public final static int TOGGLE_BUTTON = 2;
+    public final static int TOGGLE_COMPRESSOR_BUTTON = 11;
   }
 
   public static class DriveTrain {
@@ -32,10 +32,15 @@ public class Constants {
     // operational constants
 
     // inches/pulse
-    public final static double WHEEL_RADIUS = 5.0; // in inches
-    public final static double PULSES_PER_ROTATION = 256;
-    public final static double INCHES_PER_PULSE = (2 * Math.PI * WHEEL_RADIUS)
-        / PULSES_PER_ROTATION;
+    private final static double WHEEL_DIAMETER = 6.0; // in inches
+    private final static double PULSES_PER_ROTATION = 256;
+    private final static double OUTPUT_SPROCKET_DIAMETER = 2.0;
+    private final static double WHEEL_SPROCKET_DIAMETER = 3.5;
+
+    public final static double INCHES_PER_PULSE = (((Math.PI)
+            * OUTPUT_SPROCKET_DIAMETER / PULSES_PER_ROTATION) / WHEEL_SPROCKET_DIAMETER)
+            * WHEEL_DIAMETER;
+
     public final static double DRIVE_DEAD_ZONE = 0.25;
 
     public final static double MAX_ACCELERATION = 0.3;

@@ -1,5 +1,6 @@
 package org.usfirst.frc3501.RiceCatRobot;
 
+import org.usfirst.frc3501.RiceCatRobot.commands.CloseClaw;
 import org.usfirst.frc3501.RiceCatRobot.commands.ToggleClaw;
 import org.usfirst.frc3501.RiceCatRobot.commands.ToggleCompressor;
 
@@ -13,15 +14,21 @@ public class OI {
   public static JoystickButton toggleCompressorButton;
   public static JoystickButton toggleClawButton;
 
+  public static JoystickButton closeClawButton;
+
   public OI() {
     System.out.println("OI is open");
     leftJoystick = new Joystick(Constants.OI.LEFT_STICK_PORT);
     rightJoystick = new Joystick(Constants.OI.RIGHT_STICK_PORT);
-    triggerButton = new JoystickButton(rightJoystick, Constants.OI.TRIGGER_PORT);
+    triggerButton = new JoystickButton(rightJoystick, Constants.OI.TRIGGER_BUTTON);
     toggleClawButton = new JoystickButton(rightJoystick,
-        Constants.OI.TOGGLE_PORT);
+        Constants.OI.TOGGLE_BUTTON);
     toggleCompressorButton = new JoystickButton(rightJoystick,
-        Constants.OI.TOGGLE_COMPRESSOR_PORT);
+        Constants.OI.TOGGLE_COMPRESSOR_BUTTON);
+
+    closeClawButton = new JoystickButton(rightJoystick, 2);
+
+    closeClawButton.whenPressed(new CloseClaw());
 
     toggleClawButton.whenPressed(new ToggleClaw());
     toggleCompressorButton.whenPressed(new ToggleCompressor());

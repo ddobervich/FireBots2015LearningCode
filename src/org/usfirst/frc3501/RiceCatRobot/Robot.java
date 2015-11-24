@@ -14,13 +14,12 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
 public class Robot extends IterativeRobot {
-  static Timer timer;
   public static OI oi;
   public static DriveTrain driveTrain;
   public static Arm arm;
   public static Claw claw;
 
-  Command auton;
+  private Command autonCommand;
 
   @Override
   public void robotInit() {
@@ -29,13 +28,12 @@ public class Robot extends IterativeRobot {
     claw = new Claw();
     oi = new OI();
 
-    auton = new SmoothAccelerateForDistance(100, 0.3, 1);
+    autonCommand = new DriveDistance(36, 0.2);
   }
 
   @Override
   public void autonomousInit() {
-    driveTrain.stop();
-    auton.start();
+    autonCommand.start();
   }
 
   @Override
