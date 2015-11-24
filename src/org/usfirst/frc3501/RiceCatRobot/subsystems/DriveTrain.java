@@ -38,6 +38,10 @@ public class DriveTrain extends Subsystem {
     return leftEncoder.getRate();
   }
 
+  public double getSpeed() {
+    return (getLeftSpeed() + getRightSpeed()) / 2.0;
+  }
+
   // Returns distance in in
   public double getRightDistance() {
     return rightEncoder.getDistance();
@@ -46,6 +50,10 @@ public class DriveTrain extends Subsystem {
   // Returns distance in in
   public double getLeftDistance() {
     return leftEncoder.getDistance();
+  }
+
+  public double getDistance() {
+    return (getRightDistance() + getLeftDistance()) / 2.0;
   }
 
   public void stop() {
