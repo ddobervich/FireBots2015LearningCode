@@ -8,6 +8,10 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Arm extends Subsystem {
+  public final static double ARM_HIGH_SPEED = 0.5;
+  public final static double ARM_LOW_SPEED = 0.5;
+  public static final double DEAD_ZONE = 0.05;
+
   private CANJaguar left, right;
   private DigitalInput lowerLimitSwitch, upperLimitSwitch;
 
@@ -31,8 +35,7 @@ public class Arm extends Subsystem {
   }
 
   public double deadZoneFilter(double speed) {
-    if (MathLib.inRange(speed, -Constants.Arm.DEAD_ZONE,
-        Constants.Arm.DEAD_ZONE))
+    if (MathLib.inRange(speed, -DEAD_ZONE, DEAD_ZONE))
       return 0;
     return speed;
   }

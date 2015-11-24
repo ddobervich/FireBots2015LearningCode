@@ -8,9 +8,13 @@ import org.usfirst.frc3501.RiceCatRobot.commands.OpenClaw;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Claw extends Subsystem {
+  public final static Value OPEN = DoubleSolenoid.Value.kForward;
+  public final static Value CLOSE = DoubleSolenoid.Value.kReverse;
+
   private Compressor compressor;
   private DoubleSolenoid solenoid;
 
@@ -25,15 +29,15 @@ public class Claw extends Subsystem {
   }
 
   public void closeClaw() {
-    solenoid.set(Constants.Claw.close);
+    solenoid.set(CLOSE);
   }
 
   public void openClaw() {
-    solenoid.set(Constants.Claw.open);
+    solenoid.set(OPEN);
   }
 
   public boolean isOpen() {
-    return solenoid.get() == Constants.Claw.open;
+    return solenoid.get() == OPEN;
   }
 
   public void stopCompressor() {

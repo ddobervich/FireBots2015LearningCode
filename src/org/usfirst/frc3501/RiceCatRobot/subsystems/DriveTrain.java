@@ -8,6 +8,23 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class DriveTrain extends Subsystem {
+  // operational constants
+
+  // inches/pulse
+  private final static double WHEEL_DIAMETER = 6.0; // in inches
+  private final static double PULSES_PER_ROTATION = 256;
+  private final static double OUTPUT_SPROCKET_DIAMETER = 2.0;
+  private final static double WHEEL_SPROCKET_DIAMETER = 3.5;
+
+  public final static double INCHES_PER_PULSE = (((Math.PI)
+      * OUTPUT_SPROCKET_DIAMETER / PULSES_PER_ROTATION) / WHEEL_SPROCKET_DIAMETER)
+      * WHEEL_DIAMETER;
+
+  public final static double DRIVE_DEAD_ZONE = 0.25;
+  public final static double MAX_ACCELERATION = 0.3;
+  public static final double MOTOR_MAX_VAL = 1;
+  public static final double MOTOR_MIN_VAL = -1;
+
   private CANJaguar frontLeft, frontRight, rearLeft, rearRight;
   private Encoder leftEncoder, rightEncoder;
 
@@ -20,8 +37,8 @@ public class DriveTrain extends Subsystem {
         Constants.DriveTrain.ENCODER_LEFT_B, false, EncodingType.k4X);
     rightEncoder = new Encoder(Constants.DriveTrain.ENCODER_RIGHT_A,
         Constants.DriveTrain.ENCODER_RIGHT_B, false, EncodingType.k4X);
-    leftEncoder.setDistancePerPulse(Constants.DriveTrain.INCHES_PER_PULSE);
-    rightEncoder.setDistancePerPulse(Constants.DriveTrain.INCHES_PER_PULSE);
+    leftEncoder.setDistancePerPulse(INCHES_PER_PULSE);
+    rightEncoder.setDistancePerPulse(INCHES_PER_PULSE);
   }
 
   public void resetEncoders() {
@@ -61,7 +78,7 @@ public class DriveTrain extends Subsystem {
   }
 
   public double deadZoneFilter(double joystickValue) {
-    if (Math.abs(joystickValue) < Constants.DriveTrain.DRIVE_DEAD_ZONE)
+    if (Math.abs(joystickValue) < DRIVE_DEAD_ZONE)
       return 0;
 
     return joystickValue;
@@ -84,7 +101,7 @@ public class DriveTrain extends Subsystem {
     } else if (yVal < 0) {
       yVal += 0.15;
     }
-    if (Math.abs(twist) < Constants.DriveTrain.DRIVE_DEAD_ZONE) {
+    if (Math.abs(twist) < DRIVE_DEAD_ZONE) {
       twist = 0;
     }
 

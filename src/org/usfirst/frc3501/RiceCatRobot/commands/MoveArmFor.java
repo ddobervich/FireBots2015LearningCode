@@ -33,9 +33,9 @@ public class MoveArmFor extends Command {
   @Override
   protected void execute() {
     if (direction == Direction.UP) {
-      Robot.arm.setArmSpeeds(-Constants.Arm.ARM_LOW_SPEED);
+      Robot.arm.setArmSpeeds(-Robot.arm.ARM_LOW_SPEED);
     } else if (direction == Direction.DOWN) {
-      Robot.arm.setArmSpeeds(Constants.Arm.ARM_LOW_SPEED);
+      Robot.arm.setArmSpeeds(Robot.arm.ARM_LOW_SPEED);
     }
   }
 
