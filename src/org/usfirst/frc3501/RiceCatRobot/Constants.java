@@ -24,10 +24,10 @@ public class Constants {
     public final static int DRIVE_FRONT_RIGHT = 5;
     public final static int DRIVE_REAR_LEFT = 3;
     public final static int DRIVE_REAR_RIGHT = 6;
-    public final static int DRIVE_LEFT_A = 3;
-    public final static int DRIVE_LEFT_B = 4;
-    public final static int DRIVE_RIGHT_A = 2;
-    public final static int DRIVE_RIGHT_B = 1;
+    public final static int ENCODER_LEFT_A = 3;
+    public final static int ENCODER_LEFT_B = 4;
+    public final static int ENCODER_RIGHT_A = 2;
+    public final static int ENCODER_RIGHT_B = 1;
 
     // operational constants
 

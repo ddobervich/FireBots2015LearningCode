@@ -16,10 +16,10 @@ public class DriveTrain extends Subsystem {
     frontRight = new CANJaguar(Constants.DriveTrain.DRIVE_FRONT_RIGHT);
     rearLeft = new CANJaguar(Constants.DriveTrain.DRIVE_REAR_LEFT);
     rearRight = new CANJaguar(Constants.DriveTrain.DRIVE_REAR_RIGHT);
-    leftEncoder = new Encoder(Constants.DriveTrain.DRIVE_LEFT_A,
-        Constants.DriveTrain.DRIVE_LEFT_B, false, EncodingType.k4X);
-    rightEncoder = new Encoder(Constants.DriveTrain.DRIVE_RIGHT_A,
-        Constants.DriveTrain.DRIVE_RIGHT_B, false, EncodingType.k4X);
+    leftEncoder = new Encoder(Constants.DriveTrain.ENCODER_LEFT_A,
+        Constants.DriveTrain.ENCODER_LEFT_B, false, EncodingType.k4X);
+    rightEncoder = new Encoder(Constants.DriveTrain.ENCODER_RIGHT_A,
+        Constants.DriveTrain.ENCODER_RIGHT_B, false, EncodingType.k4X);
     leftEncoder.setDistancePerPulse(Constants.DriveTrain.INCHES_PER_PULSE);
     rightEncoder.setDistancePerPulse(Constants.DriveTrain.INCHES_PER_PULSE);
   }
