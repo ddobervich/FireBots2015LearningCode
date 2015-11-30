@@ -7,17 +7,17 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /***
- * Turn (left side stationary, right side runs forward or reverse) at a
- * set speed for a set amount of time).
+ * Rotates (runs left and right side of drive train in opposite directions)
+ * at a set speed for a set amount of time.
  *
  * @author David
  */
-public class TurnFor extends Command {
+public class RotateForTime extends Command {
   private double seconds;
   private double speed;
   private Direction direction;
 
-  public TurnFor(double seconds, Direction direction, double speed) {
+  public RotateForTime(double seconds, Direction direction, double speed) {
     requires(Robot.driveTrain);
     this.seconds = seconds;
     this.direction = direction;
@@ -32,9 +32,9 @@ public class TurnFor extends Command {
   @Override
   protected void execute() {
     if (direction == Direction.LEFT) {
-      Robot.driveTrain.arcadeDrive(0, -speed);
+      Robot.driveTrain.arcadeDrive(speed, -speed);
     } else if (direction == Direction.RIGHT) {
-      Robot.driveTrain.arcadeDrive(0, speed);
+      Robot.driveTrain.arcadeDrive(-speed, speed);
     } else {
       Robot.driveTrain.arcadeDrive(0, 0);
     }
