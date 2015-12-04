@@ -36,6 +36,7 @@ public class DriveDistance extends Command {
   protected void execute() {
     // nothing to do since motor speeds already set
     System.out.println(Robot.driveTrain.getLeftDistance());
+    System.out.println(Robot.driveTrain.getSpeed());
   }
 
   @Override
