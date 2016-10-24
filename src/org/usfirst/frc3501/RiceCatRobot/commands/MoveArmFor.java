@@ -28,15 +28,17 @@ public class MoveArmFor extends Command {
   @Override
   protected void initialize() {
     this.setTimeout(seconds);
-  }
 
-  @Override
-  protected void execute() {
     if (direction == Direction.UP) {
       Robot.arm.setArmSpeeds(-Robot.arm.ARM_LOW_SPEED);
     } else if (direction == Direction.DOWN) {
       Robot.arm.setArmSpeeds(Robot.arm.ARM_LOW_SPEED);
     }
+  }
+
+  @Override
+  protected void execute() {
+    // nothing to do because arm speeds already set in initialize()
   }
 
   @Override
