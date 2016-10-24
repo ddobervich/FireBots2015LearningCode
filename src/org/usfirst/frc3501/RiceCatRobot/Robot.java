@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends IterativeRobot {
   public static OI oi;
@@ -19,36 +21,35 @@ public class Robot extends IterativeRobot {
   public static Arm arm;
   public static Claw claw;
 
-  private Command autonCommand;
-
   @Override
   public void robotInit() {
     driveTrain = new DriveTrain();
     arm = new Arm();
     claw = new Claw();
     oi = new OI();
-
-    autonCommand = new DriveDistance(36, 0.2);
   }
 
   @Override
   public void autonomousInit() {
-    autonCommand.start();
+    System.out.println("Auton init");
   }
 
   @Override
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
 
+    System.out.println("Auton periodic");
   }
 
   @Override
   public void teleopInit() {
+    System.out.println("Teleop init");
   }
 
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
 
+    System.out.println("Teleop periodic 2");
   }
 }
