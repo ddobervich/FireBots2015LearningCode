@@ -5,7 +5,11 @@ import org.usfirst.frc3501.RiceCatRobot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
+ * This command toggles the state of the claw. If it's open, the claw
+ * will close. If it's closed, the claw will open.
  *
+ * Note: This command should only be triggered from the joystick!
+ * For autonomous code, use OpenClaw or CloseClaw instead
  */
 public class ToggleClaw extends Command {
 

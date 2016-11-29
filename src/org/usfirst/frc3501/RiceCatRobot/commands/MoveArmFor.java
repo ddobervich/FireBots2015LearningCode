@@ -16,8 +16,13 @@ public class MoveArmFor extends Command {
   private double seconds;
   private Direction direction;
 
-  /*
-   * @param Direction must be up or down
+  /***
+   * Constructor
+   *
+   * @param seconds
+   *          time to move arm for
+   * @param direction
+   *          direction to move the arm. Must be Direction.UP or Direction.DOWN
    */
   public MoveArmFor(double seconds, Direction direction) {
     requires(Robot.arm);

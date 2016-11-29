@@ -15,6 +15,14 @@ public class DriveForTime extends Command {
   private double seconds;
   private double speed;
 
+  /***
+   * Constructor
+   *
+   * @param seconds
+   *          time to drive for (in seconds)
+   * @param speed
+   *          speed to drive as a % of max power (in range 0 to 1).
+   */
   public DriveForTime(double seconds, double speed) {
     requires(Robot.driveTrain);
 

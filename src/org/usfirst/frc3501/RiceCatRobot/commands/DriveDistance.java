@@ -15,6 +15,14 @@ public class DriveDistance extends Command {
   private double distance; // in units of cm
   private double speed;
 
+  /***
+   * constructor
+   *
+   * @param distance
+   *          distance to drive (in inches)
+   * @param speed
+   *          speed to drive, in % of max power (0, 1)
+   */
   public DriveDistance(double distance, double speed) {
     requires(Robot.driveTrain);
 

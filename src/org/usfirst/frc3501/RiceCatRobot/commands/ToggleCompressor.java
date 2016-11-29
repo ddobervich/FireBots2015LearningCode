@@ -5,7 +5,8 @@ import org.usfirst.frc3501.RiceCatRobot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * This command toggles the state of the compressor. If it's off, it this
+ * will turn it on. If it's on, it will turn it off.
  */
 public class ToggleCompressor extends Command {
 

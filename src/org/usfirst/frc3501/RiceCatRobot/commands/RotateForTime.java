@@ -17,6 +17,16 @@ public class RotateForTime extends Command {
   private double speed;
   private Direction direction;
 
+  /***
+   * Constructor
+   *
+   * @param seconds
+   *          duration of time to run (in seconds)
+   * @param direction
+   *          direction to rotate. Must be Direction.LEFT or Direction.RIGHT
+   * @param speed
+   *          speed to rotate at, in the range [0, 1] where 1 is maximum speed
+   */
   public RotateForTime(double seconds, Direction direction, double speed) {
     requires(Robot.driveTrain);
     this.seconds = seconds;

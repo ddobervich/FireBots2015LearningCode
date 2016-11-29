@@ -17,6 +17,16 @@ public class TurnFor extends Command {
   private double speed;
   private Direction direction;
 
+  /***
+   * Turn in a direction, at a given speed, for an amount of time.
+   *
+   * @param seconds
+   *          time (in seconds) to turn
+   * @param direction
+   *          direction to turn. Must be Direction.LEFT or Direction.RIGHT
+   * @param speed
+   *          speed to perform turn at, in range 0 to 1
+   */
   public TurnFor(double seconds, Direction direction, double speed) {
     requires(Robot.driveTrain);
     this.seconds = seconds;

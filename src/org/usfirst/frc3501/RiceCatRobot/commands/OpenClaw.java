@@ -10,6 +10,9 @@ import org.usfirst.frc3501.RiceCatRobot.Robot;
  */
 public class OpenClaw extends Command {
 
+  /***
+   * Constructor
+   */
   public OpenClaw() {
     requires(Robot.claw);
   }

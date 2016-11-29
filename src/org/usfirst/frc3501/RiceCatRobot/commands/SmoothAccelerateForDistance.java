@@ -10,12 +10,22 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * This command will drive the specified distance at specified speed.
- *
+ * It attempts to have smooth acceleration/decceleration.
  */
 public class SmoothAccelerateForDistance extends Command {
   private double distance; // in units of inches
   private double minSpeed, maxSpeed;
 
+  /***
+   * Constructor
+   *
+   * @param distance
+   *          distance (in inches) to move
+   * @param minSpeed
+   *          minimum speed (to start & end) in the range 0 to 1.
+   * @param maxSpeed
+   *          maximum speed to reach during travel, in range 0 to 1.
+   */
   public SmoothAccelerateForDistance(double distance, double minSpeed,
       double maxSpeed) {
     requires(Robot.driveTrain);

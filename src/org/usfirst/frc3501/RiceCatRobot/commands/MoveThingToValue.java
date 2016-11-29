@@ -2,6 +2,15 @@ package org.usfirst.frc3501.RiceCatRobot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+/***
+ * This is an example class to illustrate how to move an actuator until a
+ * sensor reads a particular value.
+ *
+ * YOU SHOULD NEVER USE THIS COMMAND DIRECTLY!
+ *
+ * @author David
+ *
+ */
 public class MoveThingToValue extends Command {
   private static final double THRESHOLD = 0.1;
   private double speed;
