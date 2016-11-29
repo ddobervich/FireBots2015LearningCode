@@ -44,3 +44,5 @@ local.properties
 build/
 dist/
 sysProps.xml
+build.xml
+build.properties
